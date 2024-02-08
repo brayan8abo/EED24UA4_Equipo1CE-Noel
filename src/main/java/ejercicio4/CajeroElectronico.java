@@ -48,7 +48,6 @@ public class CajeroElectronico {
 		for (int i = 0; i < clientes.length; i++) {
 			do {
 				cliente = sc.nextLine();
-
 				if (!clientes[i].verificarIdentidicador(cliente)) {
 
 				} else {
