@@ -3,37 +3,61 @@ package ejercicio4;
 //- Tarea 2(3) crear Clase Cliente con los atributos identificador, password
 
 public class Cliente {
-	String cliente;
-	String password;
+	int identificador;
+	int password;
 	double saldo;
 
-	public Cliente(String identificador, String password) {
-		this.cliente = identificador;
+	public Cliente(int identificador, int password) {
+		this.identificador = identificador;
 		this.password = password;
 	}
 
-	public String getIdentificador() {
-		return cliente;
+	public int getIdentificador() {
+		return identificador;
 	}
 
-	public void setIdentificador(String identificador) {
-		this.cliente = identificador;
+	public void setIdentificador(int identificador) {
+		this.identificador = identificador;
 	}
 
-	public String getPassword() {
+	public int getPassword() {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(int password) {
 		this.password = password;
 	}
 
-	public boolean verificarIdentidicador(String identificador) {
-		return this.cliente.equals(identificador);
+	static boolean verificarIdentidicador(Cliente[] cliente, int identificador) {
+		boolean correcto = false;
+
+		for (int i = 0; i < cliente.length; i++) {
+			if (cliente[i].identificador == identificador) {
+				correcto = true;
+				return correcto;
+			}
+
+		}
+
+		return correcto;
+
 	}
 
-	public boolean verificarPassword(String password) {
-		return this.password.equals(password);
-	}
+	static boolean verificarPassword(Cliente[] cliente, int password) {
+		boolean correcto = false;
 
+		for (int i = 0; i < cliente.length; i++) {
+
+			if (cliente[i].password == password) {
+
+				correcto = true;
+				return correcto;
+			}else {
+				correcto = false;
+				return false;
+
+			}
+		}
+		return correcto;
+	}
 }
