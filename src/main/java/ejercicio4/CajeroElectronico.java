@@ -13,60 +13,57 @@ public class CajeroElectronico {
 //		   - Password de cliente
 //		   tras lo que mostrará un mensaje saludando al identificador.
 
+		Cliente[] clientes = new Cliente[5];
+
+		clientes[0] = new Cliente(1, 1);
+		clientes[1] = new Cliente(2, 2);
+		clientes[2] = new Cliente(3, 3);
+		clientes[3] = new Cliente(4, 4);
+		clientes[4] = new Cliente(5, 5);
+
 		Scanner sc = new Scanner(System.in);
-		String cliente = "";
-		String password = "";
+
+		int identificadorCliente;
+		int password;
 		boolean para = true;
 
 		System.out.println("---------------------------------------");
 		System.out.println("-----------CAJERO AUTOMATICO-----------");
 		System.out.println("---------------------------------------");
 		System.out.println("---------------------------------------");
-		System.out.println("INTRODUCE EL IDENTIFICADOR DE CLIENTE :");
-		cliente = sc.nextLine();
-		System.out.println("---------------------------------------");
-		System.out.println("INTRODUCE LA CONTRASEÑA DEL IDENTIFICADOR " + cliente + " :");
-		password = sc.nextLine();
-		System.out.println("---------------------------------------");
-		System.out.println("--------- SALUDOS : " + cliente + " ---------------");
-		System.out.println("---------------------------------------");
+		do {
+			System.out.println("INTRODUCE EL IDENTIFICADOR DE CLIENTE :");
+			identificadorCliente = sc.nextInt();
+			if (Cliente.verificarIdentidicador(clientes, identificadorCliente)) {
+				System.out.println("---------------------------------------");
+				para = false;
 
-//      - Tarea 2(3)crear un registro de clientes en la clase CajeroEletronico con 5 clientes diferentes
-//	    modificar la ejecución del menu para que compruebe si el identificador introducido existe y después si la password es correcta.
-//	    En caso erróneo se debe mostrar y volverá a empezar:
-//	     - Si el usuario no está en el registro: "Error: el usuario no existe"
-//	     - Si la contraseña no es correcta: "Error: credenciales incorrectas"
-		
-		Cliente[] clientes = new Cliente[5];
+				System.out.println("INTRODUCE LA CONTRASEÑA DEL IDENTIFICADOR " + identificadorCliente + " :");
+				password = sc.nextInt();
 
-		clientes[0] = new Cliente("Cliente1", "A");
-		clientes[1] = new Cliente("Cliente2", "B");
-		clientes[2] = new Cliente("Cliente3", "C");
-		clientes[3] = new Cliente("Cliente4", "D");
-		clientes[4] = new Cliente("Cliente5", "E");
+				if (Cliente.verificarPassword(clientes, password)) {
 
-		for (int i = 0; i < clientes.length; i++) {
-			do {
-				cliente = sc.nextLine();
+					System.out.println("---------------------------------------");
+					System.out.println("--------- SALUDOS : " + identificadorCliente + " ---------------");
+					System.out.println("---------------------------------------");
 
-				if (!clientes[i].verificarIdentidicador(cliente)) {
-
-				} else {
-					System.out.println("Error: Error: el usuario no existe");
-				}
-				password = sc.nextLine();
-
-				if (!clientes[i].verificarPassword(password)) {
-					System.out.println("Acceso Concedido");
-					para = false;
-				} else {
+				} else if (!Cliente.verificarPassword(clientes, password)) {
 					System.out.println("Error: credenciales incorrectas");
+					para = false;
 				}
 
-			} while (para);
+			} else {
+				System.out.println("Error: el usuario no existe");
+				para = false;
+			}
+
+		} while (para);
+		sc.close();
+
+		if (!para) {
+			System.out.println("---------------------------------------");
+			System.out.println("---------------- ADIOS ----------------");
+			System.out.println("---------------------------------------");
 		}
-
-		sc.nextLine();
-
 	}
 }
