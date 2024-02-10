@@ -43,7 +43,7 @@ public class Ejercicio4Tareas {
 //	- Tarea 2 (5)crear un menú de operaciones en CajeroElectronico tras haber realizado un logueo satisfactorio que muestre:
 //	    A: Mostrar saldo actual
 //	    B: Ingresar importe
-//	    C: Obtener importe
+//	    C: Obtener importe (sacar dinero)
 //	    D: Transferir importe
 //	    S: Salir (volverá al menú de introducción de claves)
 //	   actualizar la clase cliente para que tenga un atributo monedero.  El monedero debe ser generado en el constructor como un número aleatorio entre 1000 y 20000.
