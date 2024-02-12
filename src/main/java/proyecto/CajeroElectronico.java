@@ -1,8 +1,8 @@
-package ejercicio4;
+package proyecto;
 
 import java.util.Scanner;
 
-import ejercicio4.Cliente;
+import proyecto.Cliente;
 
 public class CajeroElectronico {
 
@@ -19,11 +19,11 @@ public class CajeroElectronico {
 
 		Cliente[] clientes = new Cliente[5];
 
-		clientes[0] = new Cliente(6123,1);
-		clientes[1] = new Cliente(231,23);
-		clientes[2] = new Cliente(4312,3);
-		clientes[3] = new Cliente(6423,4);
-		clientes[4] = new Cliente(5512,5);
+		clientes[0] = new Cliente(6123,1,1);
+		clientes[1] = new Cliente(231,23,2);
+		clientes[2] = new Cliente(4312,3,3);
+		clientes[3] = new Cliente(6423,4,4);
+		clientes[4] = new Cliente(5512,5,5);
 		
 		Scanner sc = new Scanner(System.in);
 
