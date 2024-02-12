@@ -200,6 +200,7 @@ public class Cliente {
 			if (cliente[i].password == password) {
 				correcto = true;
 				return correcto;
+				
 			} 
 //			else {
 //				correcto = false;
@@ -207,6 +208,11 @@ public class Cliente {
 //			} old ............????no entiendo ese else, si la password no esta en la primera posicion siempre dara error
 		}
 		return correcto;
+	}
+	
+	static int devolverIndice(Cliente array) {
+		
+		return array.indice;
 	}
 
 	@Override
