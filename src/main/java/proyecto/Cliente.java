@@ -1,4 +1,4 @@
-package ejercicio4;
+package proyecto;
 
 
 import java.util.Random;
@@ -14,12 +14,14 @@ public class Cliente {
 	// atributos
 	int identificador;
 	int password;
+	int indice;
 	double monedero = rnd.nextDouble(1000, 20001);
 
 	// constructor
-	public Cliente(int identificador, int password) {
+	public Cliente(int identificador, int password, int indice) {
 		this.identificador = identificador;
 		this.password = password;
+		this.indice=indice;
 	}
 
 	

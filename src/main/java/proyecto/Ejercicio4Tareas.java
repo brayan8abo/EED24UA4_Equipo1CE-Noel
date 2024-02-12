@@ -1,4 +1,4 @@
-package ejercicio4;
+package proyecto;
 
 public class Ejercicio4Tareas {
 
