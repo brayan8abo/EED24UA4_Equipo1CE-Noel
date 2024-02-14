@@ -208,6 +208,48 @@ public class Cliente {
 		}
 		return correcto;
 	}
+	
+	
+
+	public int getIdentificador() {
+		return identificador;
+	}
+
+
+	public void setIdentificador(int identificador) {
+		this.identificador = identificador;
+	}
+
+
+	public int getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(int password) {
+		this.password = password;
+	}
+
+
+	public int getIndice() {
+		return indice;
+	}
+
+
+	public void setIndice(int indice) {
+		this.indice = indice;
+	}
+
+
+	public double getMonedero() {
+		return monedero;
+	}
+
+
+	public void setMonedero(double monedero) {
+		this.monedero = monedero;
+	}
+
 
 	@Override
 	public String toString() {
