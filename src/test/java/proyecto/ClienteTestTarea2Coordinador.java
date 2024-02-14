@@ -77,7 +77,6 @@ class ClienteTestTarea2Coordinador {
 		clientes[3] = new Cliente(4, 4, 4);
 		clientes[4] = new Cliente(5, 5, 5);
 
-// Utilizamos clientes en la posicion 0 de emisor y clientes en la poscion 1 como recepor para hacer el test valido
 
 		String input = "2\n50\n"; //
 		InputStream in = new ByteArrayInputStream(input.getBytes());
