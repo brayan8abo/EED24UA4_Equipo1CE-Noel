@@ -200,6 +200,7 @@ public class Cliente {
 			if (cliente[i].password == password) {
 				correcto = true;
 				return correcto;
+				
 			} 
 //			else {
 //				correcto = false;
@@ -208,8 +209,6 @@ public class Cliente {
 		}
 		return correcto;
 	}
-	
-	
 
 	public int getIdentificador() {
 		return identificador;
@@ -250,6 +249,7 @@ public class Cliente {
 		this.monedero = monedero;
 	}
 
+>>>>>>> refs/remotes/origin/feat/inversionyrecibos
 
 	@Override
 	public String toString() {
