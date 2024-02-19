@@ -15,7 +15,7 @@ public class Cliente {
 	int identificador;
 	int password;
 	int indice;
-	double monedero = rnd.nextDouble(1000, 20001);
+	double monedero = rnd.nextDouble(10000, 20001);
 
 	// constructor
 	public Cliente(int identificador, int password, int indice) {
@@ -209,11 +209,47 @@ public class Cliente {
 		}
 		return correcto;
 	}
-	
-	static int devolverIndice(Cliente array) {
-		
-		return array.indice;
+
+	public int getIdentificador() {
+		return identificador;
 	}
+
+
+	public void setIdentificador(int identificador) {
+		this.identificador = identificador;
+	}
+
+
+	public int getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(int password) {
+		this.password = password;
+	}
+
+
+	public int getIndice() {
+		return indice;
+	}
+
+
+	public void setIndice(int indice) {
+		this.indice = indice;
+	}
+
+
+	public double getMonedero() {
+		return monedero;
+	}
+
+
+	public void setMonedero(double monedero) {
+		this.monedero = monedero;
+	}
+
+>>>>>>> refs/remotes/origin/feat/inversionyrecibos
 
 	@Override
 	public String toString() {
