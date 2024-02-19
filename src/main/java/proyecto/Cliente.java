@@ -15,7 +15,7 @@ public class Cliente {
 	int identificador;
 	int password;
 	int indice;
-	double monedero = rnd.nextDouble(1000, 20001);
+	double monedero = rnd.nextDouble(10000, 20001);
 
 	// constructor
 	public Cliente(int identificador, int password, int indice) {
