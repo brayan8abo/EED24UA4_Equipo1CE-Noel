@@ -48,7 +48,9 @@ public class Ejercicio4Tareas {
 //	    S: Salir (volverá al menú de introducción de claves)
 //	   actualizar la clase cliente para que tenga un atributo monedero.  El monedero debe ser generado en el constructor como un número aleatorio entre 1000 y 20000.
 //	- Tarea 3 (6)Implementar el método Obtener importe en Cliente e inclúyelo en CajeroElectronico
-//
+//	(comprobar que se retira el importe)junit
+// (comprobar que se genera un numero en el monedero)
+	
 //	SE HA DE GENERAR EL CÓDIGO DE TEST EN JUNIT PARA LAS CLASES O MÉTODOS REALIZADOS EN CADA TAREA
 //	
 	
