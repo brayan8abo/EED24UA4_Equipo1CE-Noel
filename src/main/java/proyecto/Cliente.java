@@ -1,10 +1,9 @@
 package proyecto;
 
-
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
-
-
 
 //- Tarea 2(3) crear Clase Cliente con los atributos identificador, password
 
@@ -16,16 +15,17 @@ public class Cliente {
 	int password;
 	int indice;
 	double monedero = rnd.nextDouble(10000, 20001);
+	// AÑADIR UNA ARRAY DE INVERSIONES EN CLASE CLIENTE
+	ArrayList<Inversion> inversiones = new ArrayList<>(5);
 
 	// constructor
 	public Cliente(int identificador, int password, int indice) {
 		this.identificador = identificador;
 		this.password = password;
-		this.indice=indice;
+		this.indice = indice;
 	}
 
-	
-	//OLD
+	// OLD
 //	// metodo para mostrar el saldo
 //	static double mostrarSaldo(Cliente cliente) {
 //		return cliente.monedero;
@@ -59,8 +59,7 @@ public class Cliente {
 //		System.out.println("Ha transferdo " + importe + "€");
 //	}
 
-	
-	//NEW
+	// NEW
 	static void verMonedero(Cliente[] array, int identificador) {
 
 		for (int i = 0; i < array.length; i++) {
@@ -113,7 +112,7 @@ public class Cliente {
 
 		}
 		if (error2) {
-			
+
 			System.out.println("Error en tu identificador vuelve a logearte");
 
 		}
@@ -180,7 +179,6 @@ public class Cliente {
 
 	}
 
-	
 	static boolean verificarIdentidicador(Cliente[] cliente, int identificador) {
 		boolean correcto = false;
 
@@ -200,8 +198,8 @@ public class Cliente {
 			if (cliente[i].password == password) {
 				correcto = true;
 				return correcto;
-				
-			} 
+
+			}
 //			else {
 //				correcto = false;
 //				return false;
@@ -214,48 +212,87 @@ public class Cliente {
 		return identificador;
 	}
 
-
 	public void setIdentificador(int identificador) {
 		this.identificador = identificador;
 	}
-
 
 	public int getPassword() {
 		return password;
 	}
 
-
 	public void setPassword(int password) {
 		this.password = password;
 	}
-
 
 	public int getIndice() {
 		return indice;
 	}
 
-
 	public void setIndice(int indice) {
 		this.indice = indice;
 	}
-
 
 	public double getMonedero() {
 		return monedero;
 	}
 
-
-
-
-
-
 	public void setMonedero(double monedero) {
 		this.monedero = monedero;
 	}
 
+	public ArrayList<Inversion> getInversiones() {
+		return inversiones;
+	}
 
-	@Override
-	public String toString() {
+	public void setInversiones(ArrayList<Inversion> inversiones) {
+		this.inversiones = inversiones;
+	}
+
+	public static void añadirInversion(ArrayList<Inversion> matrizInversionCliente) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Introduce el nombre de la inversion que quieres crear");
+		String nombre = sc.nextLine();
+		System.out.println("Introduce el nombre de la inversion que quieres crear");
+		double importeInversion = sc.nextDouble();
+		matrizInversionCliente.add(new Inversion(importeInversion, nombre));
+	}
+
+	public static void eliminarInversion (ArrayList<Inversion> matrizInversionCliente) {
+		Scanner sc = new Scanner(System.in);
+		boolean fallo=true;
+		System.out.println("Introduce el nombre de la inversion que quieres eliminar");
+		String nombre = sc.nextLine();
+		
+		for (int i = 0; i < matrizInversionCliente.size(); i++) {
+			Inversion inversion= matrizInversionCliente.get(i);
+			if (inversion.nombre.equalsIgnoreCase(nombre)) {
+				
+				matrizInversionCliente.remove(i);
+				fallo=false;
+				System.out.println("La inversion : "+nombre+" fue eliminada");
+			}
+		}
+		
+		if (fallo) {
+			
+			System.out.println("Error la inversion :"+nombre+" no existe en tu cartera de inversiones");
+		}
+	}
+	static void mostrarInversiones(Cliente[] clientes,int identificadorCliente) {
+		for (int i = 0; i < clientes.length; i++) {
+
+			if (clientes[i].getIdentificador() == identificadorCliente) {
+
+				for (int j = 0; j < clientes[i].inversiones.size(); j++) {
+					System.out.println(clientes[i].inversiones.get(j));
+				}
+			}
+		}
+	}
+	
+	@Override public String toString() {
 		return "Cliente [identificador=" + identificador + ", password=" + password + ", monedero=" + monedero + "€]";
 	}
 
