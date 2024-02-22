@@ -245,11 +245,14 @@ public class Cliente {
 	}
 
 
+
+
+
+
 	public void setMonedero(double monedero) {
 		this.monedero = monedero;
 	}
 
->>>>>>> refs/remotes/origin/feat/inversionyrecibos
 
 	@Override
 	public String toString() {

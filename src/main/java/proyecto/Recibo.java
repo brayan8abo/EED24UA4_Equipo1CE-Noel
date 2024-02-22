@@ -28,6 +28,25 @@ public class Recibo {
 		
 		return pagar;
 	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getCantidadRecibo() {
+		return cantidadRecibo;
+	}
+
+	public void setCantidadRecibo(double cantidadRecibo) {
+		this.cantidadRecibo = cantidadRecibo;
+	}
+	
+	
+	
 	
 
 }
