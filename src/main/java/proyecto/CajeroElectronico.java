@@ -57,7 +57,7 @@ public class CajeroElectronico {
 
 						if (clientes[i].identificador == identificadorCliente) {
 
-							for (int j = 0; j < recibos.length; i++) {
+							for (int j = 0; j < recibos.length; j++) {
 
 								if (recibos[j].pagarRecibos()) {
 
@@ -73,15 +73,12 @@ public class CajeroElectronico {
 											+ recibos[j].nombre + " es de : " + clientes[i].getMonedero() + "€");
 								}
 							}
-
 						}
 					}
 					menu(clientes, identificadorCliente);
 				} else {
 					System.out.println("Error: credenciales incorrectas");
-
 				}
-
 			} else {
 				System.out.println("Error: el usuario no existe");
 				para = false;
@@ -105,6 +102,9 @@ public class CajeroElectronico {
 			System.out.println("2: Ingresar importe");
 			System.out.println("3: Retirar importe");
 			System.out.println("4: Transferir importe");
+			System.out.println("5: Añadir inversion");
+			System.out.println("6: Eliminar inversion");
+			System.out.println("7: Mostrar inversiones");
 			System.out.println("0: Salir (volverá al menú de introducción de claves)");
 			opcion = sc.nextInt();
 			switch (opcion) {
@@ -129,6 +129,30 @@ public class CajeroElectronico {
 				// Cliente.transferirImporte(clientes[0], clientes[0]); old
 				Cliente.traspasarMonedero(clientes, identificadorCliente);// new
 				break;
+			case 5:
+				System.out.println("5: Añadir inversion");
+				for (int i = 0; i < clientes.length; i++) {
+
+					if (clientes[i].getIdentificador() == identificadorCliente) {
+
+						Cliente.añadirInversion(clientes[i].inversiones);
+					}
+				}
+				break;
+			case 6:
+				System.out.println("6: Eliminar inversion");
+				for (int i = 0; i < clientes.length; i++) {
+
+					if (clientes[i].getIdentificador() == identificadorCliente) {
+
+						Cliente.eliminarInversion(clientes[i].inversiones);
+					}
+				}
+				break;
+			case 7:
+				System.out.println("7: Mostrar inversiones");
+				Cliente.mostrarInversiones(clientes, identificadorCliente);
+				break;
 			case 0:
 				System.out.println("Ha salido del menu");
 				break;
@@ -137,5 +161,20 @@ public class CajeroElectronico {
 				break;
 			}
 		} while (opcion != 0);
+	}
+
+	static boolean clienteExiste(Cliente[] clientes, int identificadorCliente) {
+
+		boolean correcto = false;
+
+		for (int i = 0; i < clientes.length; i++) {
+
+			if (clientes[i].getIdentificador() == identificadorCliente) {
+
+				correcto = true;
+			}
+
+		}
+		return correcto;
 	}
 }

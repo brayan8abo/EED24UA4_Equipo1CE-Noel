@@ -14,16 +14,14 @@ public class Recibo {
 	}
 	
 	//MÉTODO PAGAR RECIBO  pagarRecibos que según una probabilidad de entre 1 a 4 veces devuelva true
-	static boolean pagarRecibos() {
+	 boolean pagarRecibos() {
 		//no hace falta pasar cantidad
 		
 		Random rnd = new Random();
-		double probabilidad = rnd.nextDouble(1, 4);
-		boolean pagar;
+		double probabilidad =1; //rnd.nextDouble(1, 4); No funciona, lo pongo a 1 para probar que funcione que le toque pagar, para lo que inclui en cajero electronico
+		boolean pagar=false;
 		if(probabilidad==1) {
 			pagar=true;
-		}else {
-			pagar=false;
 		}
 		
 		return pagar;

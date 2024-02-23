@@ -48,7 +48,15 @@ public class Inversion {
 		}
 		System.out.println("Cantidad invertida:" + inversion.cantidad + "\n Benficio: " + beneficio + "\n Rentabilidad:" + porcentaje);
 	}
-	
-	//
+//
 
+	//NOEL AÑADO EL TO STRING PARA PODER VER LA INVERSIONES QUE TIENE EL CLIENTE EN CAJERO ELECTRONICO
+	
+	@Override
+	public String toString() {
+		return "Inversion [Cantidad Invertida=" + cantidad + ", Nombre de la inversion=" + nombre + "]";
+	}
+	
+	
+	
 }
