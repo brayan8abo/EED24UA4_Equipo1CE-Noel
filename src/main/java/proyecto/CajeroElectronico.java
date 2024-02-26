@@ -1,18 +1,12 @@
 package proyecto;
 
-import java.util.Iterator;
-import java.util.Scanner;
 
-import proyecto.Cliente;
+import java.util.Scanner;
 
 public class CajeroElectronico {
 
 	public static void main(String[] args) {
 
-//		- Tarea 2(1) crear Clase principal CajeroEletronico con un método main de ejecución que muestre un menú de estados solicitando:
-//		   - Identificador de cliente
-//		   - Password de cliente
-//		   tras lo que mostrará un mensaje saludando al identificador.
 
 		// EL PROGRAMA SOLO DEJA DE FUNCIONAR CUANDO SE INTRODUCE UN IDENTIFICADOR
 		// INCORRECTO
@@ -26,6 +20,7 @@ public class CajeroElectronico {
 		clientes[4] = new Cliente(5512, 5, 5);
 
 		Recibo[] recibos = new Recibo[3];
+		
 		recibos[0] = new Recibo("Luz", 100);
 		recibos[1] = new Recibo("Agua", 45);
 		recibos[2] = new Recibo("Seguro hogar", 250);
@@ -55,7 +50,7 @@ public class CajeroElectronico {
 
 					for (int i = 0; i < clientes.length; i++) {
 
-						if (clientes[i].identificador == identificadorCliente) {
+						if (clientes[i].getIdentificador() == identificadorCliente) {
 
 							for (int j = 0; j < recibos.length; j++) {
 
