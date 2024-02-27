@@ -29,7 +29,7 @@ public class CajeroElectronico {
 
 		int identificadorCliente;
 		int password;
-		boolean para = true;
+		boolean isCliente = true;
 
 		System.out.println("---------------------------------------");
 		System.out.println("-----------CAJERO AUTOMATICO-----------");
@@ -40,7 +40,7 @@ public class CajeroElectronico {
 			identificadorCliente = sc.nextInt();
 			if (Cliente.verificarIdentidicador(clientes, identificadorCliente)) {
 				System.out.println("---------------------------------------");
-				para = true;
+				isCliente = true;
 				System.out.println("INTRODUCE LA CONTRASEÑA DEL IDENTIFICADOR " + identificadorCliente + " :");
 				password = sc.nextInt();
 				if (Cliente.verificarPassword(clientes, password)) {
@@ -56,16 +56,16 @@ public class CajeroElectronico {
 
 								if (recibos[j].pagarRecibos()) {
 
-									System.out.println("Tienes que pagar el recibo de " + recibos[j].nombre
-											+ " por un importe de : " + recibos[j].cantidadRecibo + " €");
+									System.out.println("\nTienes que pagar el recibo de " + recibos[j].nombre
+											+ " por un importe de : " + recibos[j].cantidadRecibo + " €\n");
 
-									System.out.println("Tu saldo en cuenta antes de pagar el recibo : "
-											+ recibos[j].nombre + " es de : " + clientes[i].getMonedero() + "€");
+									System.out.println("\nTu saldo en cuenta antes de pagar el recibo : "
+											+ recibos[j].nombre + " es de : " + clientes[i].getMonedero() + "€\n");
 
 									clientes[i].setMonedero(clientes[i].getMonedero() - recibos[j].cantidadRecibo);
 
-									System.out.println("Tu saldo en cuenta despues de pagar el recibo : "
-											+ recibos[j].nombre + " es de : " + clientes[i].getMonedero() + "€");
+									System.out.println("\nTu saldo en cuenta después de pagar el recibo : "
+											+ recibos[j].nombre + " es de : " + clientes[i].getMonedero() + "€\n");
 								}
 							}
 						}
@@ -76,16 +76,16 @@ public class CajeroElectronico {
 				}
 			} else {
 				System.out.println("Error: el usuario no existe");
-				para = false;
+				isCliente = false;
 			}
-			if (!para) {
+			if (!isCliente) {
 				System.out.println("---------------------------------------");
 				System.out.println("---------------- ADIOS ----------------");
 				System.out.println("---------------------------------------");
 			}
 
-		} while (para);
-
+		} while (isCliente);
+sc.close();
 	}
 
 	static void menu(Cliente[] clientes, int identificadorCliente) {
@@ -105,24 +105,21 @@ public class CajeroElectronico {
 			switch (opcion) {
 			case 1:
 				System.out.println("1: Mostrar saldo actual");
-				// System.out.println(Cliente.mostrarSaldo(clientes[0])); old
-				Cliente.verMonedero(clientes, identificadorCliente);// new
-
+				Cliente.verMonedero(clientes, identificadorCliente);
 				break;
 			case 2:
 				System.out.println("2: Ingresar importe");
-				// Cliente.ingresarImporte(clientes[0]); old
-				Cliente.ingresoMonedero(clientes, identificadorCliente); // new
+				Cliente.ingresoMonedero(clientes, identificadorCliente); 
 				break;
 			case 3:
 				System.out.println("3: Retirar importe");
-				// Cliente.obtenerImporte(clientes[0]); old
-				Cliente.retiradaMonedero(clientes, identificadorCliente);// new
+				
+				Cliente.retiradaMonedero(clientes, identificadorCliente);
 				break;
 			case 4:
 				System.out.println("4: Transferir importe");
-				// Cliente.transferirImporte(clientes[0], clientes[0]); old
-				Cliente.traspasarMonedero(clientes, identificadorCliente);// new
+				
+				Cliente.traspasarMonedero(clientes, identificadorCliente);
 				break;
 			case 5:
 				System.out.println("5: Añadir inversion");
@@ -150,12 +147,14 @@ public class CajeroElectronico {
 				break;
 			case 0:
 				System.out.println("Ha salido del menu");
+				
 				break;
 			default:
 				System.out.println("Opción incorrecta, escriba una opción del 0 al 4");
 				break;
 			}
 		} while (opcion != 0);
+		sc.close();
 	}
 
 	static boolean clienteExiste(Cliente[] clientes, int identificadorCliente) {
@@ -170,6 +169,9 @@ public class CajeroElectronico {
 			}
 
 		}
+	
 		return correcto;
+	
 	}
+	
 }
