@@ -149,7 +149,8 @@ public class Cliente {
 
 			}
 		} else if (monederoEmpty || retirada <= 0) {
-			System.out.println("No se puede realizar la retirada, Monedero insuficiente o el importe de la retirada son 0 € o menos");
+			System.out.println(
+					"No se puede realizar la retirada, Monedero insuficiente o el importe de la retirada son 0 € o menos");
 		}
 		sc.close();
 
@@ -227,7 +228,7 @@ public class Cliente {
 		System.out.println("Introduce el nombre de la inversion que quieres crear");
 		String nombre = sc.nextLine();
 		System.out.println("Introduce el importe de la inversion que quieres crear");
-		String importeInversion = sc.nextLine(); //sc.nextDouble();
+		String importeInversion = sc.nextLine(); // sc.nextDouble();
 		Double importeFormateada = 1.0;
 		try {
 			importeFormateada = Double.parseDouble(importeInversion);
@@ -235,8 +236,8 @@ public class Cliente {
 			System.out.println("ESTE CODIGO NO FURULA ");
 		}
 		matrizInversionCliente.add(new Inversion(importeFormateada, nombre));
-		
-		
+
+		sc.close();
 	}
 
 	public static void eliminarInversion(ArrayList<Inversion> matrizInversionCliente) {
@@ -247,7 +248,7 @@ public class Cliente {
 
 		for (int i = 0; i < matrizInversionCliente.size(); i++) {
 			Inversion inversion = matrizInversionCliente.get(i);
-			if (inversion.nombre.equalsIgnoreCase(nombre)) {
+			if (inversion.getNombre().equalsIgnoreCase(nombre)) {
 
 				matrizInversionCliente.remove(i);
 				inversionEmpty = false;
@@ -272,6 +273,26 @@ public class Cliente {
 				}
 			}
 		}
+	}
+
+	ArrayList<Recibo> recibos = new ArrayList<>(5);
+
+	static void añadirRecibo(Cliente [] cliente,int identificadorCliente) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Ingrese el nombre del recibo:");
+		String nombre = sc.nextLine();
+		System.out.println("Ingrese la cantidad del recibo:");
+		double cantidad = sc.nextDouble();
+		Recibo recibo = new Recibo(nombre, cantidad);
+		cliente.length;
+		System.out.println("Recibo añadido con éxito.");
+		sc.close();
+
+	}
+
+	public void añadirRecibo(Recibo recibo) {
+		return;
+
 	}
 
 	@Override

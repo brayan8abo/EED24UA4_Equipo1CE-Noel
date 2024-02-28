@@ -56,16 +56,16 @@ public class CajeroElectronico {
 
 								if (recibos[j].pagarRecibos()) {
 
-									System.out.println("\nTienes que pagar el recibo de " + recibos[j].nombre
-											+ " por un importe de : " + recibos[j].cantidadRecibo + " €\n");
+									System.out.println("\nTienes que pagar el recibo de " + recibos[j].getNombre()
+											+ " por un importe de : " + recibos[j].getCantidadRecibo() + " €\n");
 
 									System.out.println("\nTu saldo en cuenta antes de pagar el recibo : "
-											+ recibos[j].nombre + " es de : " + clientes[i].getMonedero() + "€\n");
+											+ recibos[j].getNombre() + " es de : " + clientes[i].getMonedero() + "€\n");
 
-									clientes[i].setMonedero(clientes[i].getMonedero() - recibos[j].cantidadRecibo);
+									clientes[i].setMonedero(clientes[i].getMonedero() - recibos[j].getCantidadRecibo());
 
 									System.out.println("\nTu saldo en cuenta después de pagar el recibo : "
-											+ recibos[j].nombre + " es de : " + clientes[i].getMonedero() + "€\n");
+											+ recibos[j].getNombre() + " es de : " + clientes[i].getMonedero() + "€\n");
 								}
 							}
 						}
@@ -145,6 +145,9 @@ sc.close();
 				System.out.println("7: Mostrar inversiones");
 				Cliente.mostrarInversiones(clientes, identificadorCliente);
 				break;
+			case 8:
+				System.out.println("8. Añadir recibos");
+				Cliente.añadirRecibo(clientes, identificadorCliente);
 			case 0:
 				System.out.println("Ha salido del menu");
 				
