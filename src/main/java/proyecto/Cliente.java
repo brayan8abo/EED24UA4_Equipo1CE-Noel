@@ -277,17 +277,21 @@ public class Cliente {
 
 	ArrayList<Recibo> recibos = new ArrayList<>(5);
 
-	static void añadirRecibo(Cliente [] cliente,int identificadorCliente) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Ingrese el nombre del recibo:");
-		String nombre = sc.nextLine();
-		System.out.println("Ingrese la cantidad del recibo:");
-		double cantidad = sc.nextDouble();
-		Recibo recibo = new Recibo(nombre, cantidad);
-		cliente.length;
-		System.out.println("Recibo añadido con éxito.");
-		sc.close();
-
+	static void añadirRecibo(Cliente[] clientes, int identificadorCliente) {
+	    Scanner sc = new Scanner(System.in);
+	    System.out.println("Ingrese el nombre del recibo:");
+	    String nombre = sc.nextLine();
+	    System.out.println("Ingrese la cantidad del recibo:");
+	    double cantidad = sc.nextDouble();
+	    sc.nextLine(); // Consumir el salto de línea después de leer el double
+	    Recibo recibo = new Recibo(nombre, cantidad);
+	    if (identificadorCliente >= 0 && identificadorCliente < clientes.length) {
+	        clientes[identificadorCliente].addRecibo(recibo);
+	        System.out.println("Recibo añadido con éxito.");
+	    } else {
+	        System.out.println("Identificador de cliente inválido.");
+	    }
+	    sc.close();
 	}
 
 	public void añadirRecibo(Recibo recibo) {
