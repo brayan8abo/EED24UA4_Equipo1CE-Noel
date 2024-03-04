@@ -283,10 +283,11 @@ public class Cliente {
 	    String nombre = sc.nextLine();
 	    System.out.println("Ingrese la cantidad del recibo:");
 	    double cantidad = sc.nextDouble();
-	    sc.nextLine(); // Consumir el salto de línea después de leer el double
+	    sc.nextLine(); 
+	    
 	    Recibo recibo = new Recibo(nombre, cantidad);
 	    if (identificadorCliente >= 0 && identificadorCliente < clientes.length) {
-	        clientes[identificadorCliente].addRecibo(recibo);
+	        clientes[identificadorCliente].añadirRecibo(recibo);
 	        System.out.println("Recibo añadido con éxito.");
 	    } else {
 	        System.out.println("Identificador de cliente inválido.");
