@@ -148,6 +148,10 @@ sc.close();
 			case 8:
 				System.out.println("8. Añadir recibos");
 				Cliente.añadirRecibo(clientes, identificadorCliente);
+				break;
+			case 9:
+				System.out.println("9. Eliminar recibos");
+				Cliente.
 			case 0:
 				System.out.println("Ha salido del menu");
 				
